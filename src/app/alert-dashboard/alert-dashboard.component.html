@@ -1,0 +1,11 @@
+<h3>{{ title }}</h3>
+<div class="grid grid-pad">
+  <span *ngFor="let alert of alerts" class="col-1-4">
+    <div class="module alert">
+      <h4>{{ alert.category }}</h4>
+    </div>
+    <button (click)="sendMessage()">
+      send
+    </button>
+  </span>
+</div>

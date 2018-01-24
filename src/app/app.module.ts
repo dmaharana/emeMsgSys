@@ -3,16 +3,27 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { AlertMessageService } from './alert-message.service';
+import { MessageService } from './message.service';
+import { InMemoryDataService } from './in-memory-data.service';
+import { AlertDashboardComponent } from './alert-dashboard/alert-dashboard.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AlertDashboardComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    AlertMessageService,
+    MessageService,
+    InMemoryDataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
