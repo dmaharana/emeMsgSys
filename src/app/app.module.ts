@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { UiSwitchModule } from 'ngx-toggle-switch';
 
 
 import { AppComponent } from './app.component';
@@ -25,6 +26,7 @@ import { AlertComponent } from './alert/alert.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    UiSwitchModule,
     HttpClientModule,
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.

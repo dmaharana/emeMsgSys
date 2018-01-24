@@ -1,11 +1,22 @@
+<div>
+  <h3>Mode</h3>
+    <ui-switch 
+    size="small" 
+    defaultBgColor="green" 
+    color="red"
+    (change)="toggleMode()"
+    ></ui-switch>
+<h4>{{modeType}}</h4>
+</div>
+
 <h3>{{ title }}</h3>
 <div class="grid grid-pad">
   <span *ngFor="let alert of alerts" class="col-1-4">
     <div class="module alert">
       <h4>{{ alert.category }}</h4>
+      <button (click)="sendMessage(alert.text)">
+        send
+      </button>
     </div>
-    <button (click)="sendMessage('alert.text')">
-      send
-    </button>
   </span>
 </div>

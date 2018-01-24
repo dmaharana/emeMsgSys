@@ -11,6 +11,10 @@ import { MessageService } from '../message.service';
 export class AlertDashboardComponent implements OnInit {
   title = 'Alerts List';
   alerts: Alert[] = [];
+  drillMode = true;
+  modeType = 'Drill';
+  messageHeader = '';
+  messageEnding = '';
 
   constructor(
     private alertMessageService: AlertMessageService,
@@ -26,9 +30,25 @@ export class AlertDashboardComponent implements OnInit {
   }
 
   sendMessage(message: string): void {
-    console.log(message);
-    // this.messagesService.add(message);
+    if (!this.drillMode) {
+      this.messageHeader = 'REAL THREAT: ';
+      this.messageEnding = '\n!!! THIS is NOT a DRILL !!!';
+    } else {
+      this.messageHeader = 'Test Message: ';
+      this.messageEnding = '\n!!! this is a DRILL !!!';
+    }
 
+    this.messagesService.add(this.messageHeader + message + this.messageEnding);
+  }
+
+  toggleMode(): void {
+    this.drillMode = !this.drillMode;
+    if (!this.drillMode) {
+      this.modeType = 'REAL';
+    } else {
+      this.modeType = 'Drill';
+    }
+    this.messagesService.add(`Drill mode: ${this.drillMode}`);
   }
 
 }
