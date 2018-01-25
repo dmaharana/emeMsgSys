@@ -17,11 +17,15 @@
           <span *ngFor="let alert of alerts" class="border">
               <div class="col grid-container">
                 <div class="card">
-                  <div [ngClass]="{'card-header':true,'bg-success':drillMode,'bg-danger':!drillMode}">{{ alert.category }}</div>
+                  <div [ngClass]="{'card-header':true,'bg-success':drillMode,'bg-danger':!drillMode}">{{ alert.category }}
+                      <span href="#"><i class="fa fa-edit" aria-hidden="true"></i></span>
+                      <span href="#"><i class="fa fa-trash" aria-hidden="true"></i></span>
+                  </div>
                   <div class="card-body">{{ alert.text }}</div>
-                  <div class="card-footer">
-                      <button (click)="sendMessage(alert.text)">send</button>
-                      <i class="fas fa-github"></i>
+                  <div class="card-footer" align="center">
+                      <button (click)="sendMessage(alert.text)">
+                        <i class="fa fa-send" aria-hidden="true"></i>
+                      </button>
                   </div>
                 </div>
               </div>
