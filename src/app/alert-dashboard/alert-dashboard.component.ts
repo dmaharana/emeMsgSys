@@ -6,7 +6,10 @@ import { MessageService } from '../message.service';
 @Component({
   selector: 'app-alert-dashboard',
   templateUrl: './alert-dashboard.component.html',
-  styleUrls: ['./alert-dashboard.component.css']
+  styleUrls: [
+    // './alert-dashboard.component.css',
+    '../../../node_modules/bootstrap/dist/css/bootstrap.min.css',
+    '../../../node_modules/font-awesome/css/font-awesome.min.css']
 })
 export class AlertDashboardComponent implements OnInit {
   title = 'Alerts List';
