@@ -15,6 +15,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap/modal/modal';
 export class DemoComponent implements OnInit {
 
   newNameFormTitle = '';
+  confirmationMessage = '';
   name: Name = new Name();
   names: Name[] = [
     {id: 1, fn: 'Kishore', ln: 'Kumar'},
@@ -58,6 +59,15 @@ export class DemoComponent implements OnInit {
       this.names[nameIndex].fn = name.fn;
       this.names[nameIndex].ln = name.ln;
     }
+  }
+
+  confirmDeletion(content, id): void {
+    const nameIdx = this.findNameById(id);
+    this.name.id = this.names[nameIdx].id;
+    this.name.fn = this.names[nameIdx].fn;
+    this.name.ln = this.names[nameIdx].ln;
+    this.confirmationMessage = `Confirm deletion of "${this.name.fn} ${this.name.ln}"`;
+    this.modalService.open(content);
   }
 
   deleteName(id): void {

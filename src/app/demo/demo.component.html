@@ -17,7 +17,7 @@
             <td>{{name.fn}}</td>
             <td>{{name.ln}}</td>
             <td style="text-align:center"><button id="editIcon" type="button" class="btn" (click)="editName(addNewEditNameModal,name.id)"><i class="fa fa-pencil-square-o"></i></button>
-            <button id="editIcon" type="button" class="btn" (click)="deleteName(name.id)"><i class="fa fa-trash"></i></button></td>
+            <button id="editIcon" type="button" class="btn" (click)="confirmDeletion(confirmDelete, name.id)"><i class="fa fa-trash"></i></button></td>
           </tr>
         </tbody>
       </table>
@@ -28,7 +28,7 @@
   </div>
 </div> <!-- container -->
 
-<!-- Modal -->
+<!-- Add/ Edit Modal -->
 <ng-template #addNewEditNameModal let-c="close" let-d="dismiss">
   <form #addNewNameForm="ngForm">
     <div class="modal-header">
@@ -54,4 +54,17 @@
       (keyup.enter)="saveNewEditName(name);c('Close click')">Save</button>
     </div>
   </form>
+</ng-template>
+
+<!-- Confirmation Modal -->
+<ng-template #confirmDelete let-c="close" let-d="dismiss">
+    <div class="modal-body">
+        <h6>{{confirmationMessage}}</h6>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" (click)="c('Close click')">Cancel</button>
+      <button type="button" class="btn btn-primary"
+      (click)="deleteName(name.id);c('Close click')"
+      (keyup.enter)="deleteName(name.id);c('Close click')">Ok</button>
+    </div>
 </ng-template>
