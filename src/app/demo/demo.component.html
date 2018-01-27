@@ -1,0 +1,42 @@
+<div class="container">
+  <h2>Great Singers</h2>
+  <div class="row">
+    <div class="col-sm-6">
+      <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let name of names">
+            <td>{{name.id}}</td>
+            <td>{{name.fn}}</td>
+            <td>{{name.ln}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div> <!-- first col-sm-6 -->
+  </div> <!-- row 1 -->
+  <div class="col-sm-6 float-sm-right">
+    <button class="btn btn btn-outline-primary" (click)="addNewName(content)">Add</button>
+  </div>
+</div> <!-- container -->
+
+<!-- Modal -->
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Modal title</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>One fine body&hellip;</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+  </div>
+</ng-template>
