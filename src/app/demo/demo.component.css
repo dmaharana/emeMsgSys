@@ -5,3 +5,8 @@
 .dark-modal .close {
     color: white;   
 }
+
+#editIcon {
+    /* opacity: 0.5; */
+    background-color: white; 
+}

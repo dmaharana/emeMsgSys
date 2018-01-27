@@ -8,6 +8,7 @@
             <th>ID</th>
             <th>First Name</th>
             <th>Last Name</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -15,18 +16,19 @@
             <td>{{name.id}}</td>
             <td>{{name.fn}}</td>
             <td>{{name.ln}}</td>
+            <td><button id="editIcon" type="button" class="btn" (click)="editName(addNewEditNameModal,name.id)"><i class="fa fa-pencil-square-o"></i></button></td>
           </tr>
         </tbody>
       </table>
     </div> <!-- first col-sm-6 -->
   </div> <!-- row 1 -->
   <div class="col-sm-6 float-sm-right">
-    <button class="btn btn btn-outline-primary" (click)="addNewName(addNewNameModal)">Add</button>
+    <button class="btn btn btn-outline-primary" (click)="addNewName(addNewEditNameModal)">Add</button>
   </div>
 </div> <!-- container -->
 
 <!-- Modal -->
-<ng-template #addNewNameModal let-c="close" let-d="dismiss">
+<ng-template #addNewEditNameModal let-c="close" let-d="dismiss">
   <form #addNewNameForm="ngForm">
     <div class="modal-header">
       <h4 class="modal-title">{{newNameFormTitle}}</h4>
@@ -47,8 +49,8 @@
     <div class="modal-footer">
       <button type="button" class="btn btn-default" (click)="c('Close click')">Cancel</button>
       <button type="button" class="btn btn-primary" [disabled]="!addNewNameForm.valid"
-      (click)="saveNewName(name);c('Close click')"
-      (keyup.enter)="saveNewName(name);c('Close click')">Save</button>
+      (click)="saveNewEditName(name);c('Close click')"
+      (keyup.enter)="saveNewEditName(name);c('Close click')">Save</button>
     </div>
   </form>
 </ng-template>
