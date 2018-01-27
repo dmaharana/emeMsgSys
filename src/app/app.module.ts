@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
+
 
 import { AppComponent } from './app.component';
 import { ModalDemoComponent } from './modal-demo/modal-demo.component';
@@ -17,6 +19,7 @@ import { DemoModalComponent } from './demo-modal/demo-modal.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     NgbModule.forRoot()
   ],
   providers: [],

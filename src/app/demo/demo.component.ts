@@ -13,8 +13,9 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap/modal/modal';
 })
 export class DemoComponent implements OnInit {
 
-  name = '';
-  names = [
+  newNameFormTitle = 'Add a new singer';
+  name: Name = new Name();
+  names: Name[] = [
     {id: 1, fn: 'Kishore', ln: 'Kumar'},
     {id: 2, fn: 'Md.', ln: 'Rafi'},
     {id: 3, fn: 'Gulam', ln: 'Ali'},
@@ -25,7 +26,15 @@ export class DemoComponent implements OnInit {
 
   addNewName(content): void {
     // console.log('clicked on add');
+    this.name = {id: 0, fn: '', ln: ''};
     this.modalService.open(content, { windowClass: 'dark-modal' });
+  }
+
+  saveNewName(name): void {
+    const lastId = this.names[this.names.length - 1].id;
+    // console.log(lastId);
+    const newUser: Name = {id: lastId + 1, fn: name.fn, ln: name.ln};
+    this.names.push(newUser);
   }
 
   ngOnInit() {

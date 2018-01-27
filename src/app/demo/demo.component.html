@@ -21,22 +21,34 @@
     </div> <!-- first col-sm-6 -->
   </div> <!-- row 1 -->
   <div class="col-sm-6 float-sm-right">
-    <button class="btn btn btn-outline-primary" (click)="addNewName(content)">Add</button>
+    <button class="btn btn btn-outline-primary" (click)="addNewName(addNewNameModal)">Add</button>
   </div>
 </div> <!-- container -->
 
 <!-- Modal -->
-<ng-template #content let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title">Modal title</h4>
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <p>One fine body&hellip;</p>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
-  </div>
+<ng-template #addNewNameModal let-c="close" let-d="dismiss">
+  <form #addNewNameForm="ngForm">
+    <div class="modal-header">
+      <h4 class="modal-title">{{newNameFormTitle}}</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" class="form-control" required [(ngModel)]="name.fn" name="firstName" id="firstName">
+    </div>
+    <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" class="form-control" required [(ngModel)]="name.ln" name="lastName" id="lastName">
+    </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" (click)="c('Close click')">Cancel</button>
+      <button type="button" class="btn btn-primary" [disabled]="!addNewNameForm.valid"
+      (click)="saveNewName(name);c('Close click')"
+      (keyup.enter)="saveNewName(name);c('Close click')">Save</button>
+    </div>
+  </form>
 </ng-template>
