@@ -8,7 +8,7 @@
             <th>ID</th>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Action</th>
+            <th style="text-align:center">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -16,7 +16,8 @@
             <td>{{name.id}}</td>
             <td>{{name.fn}}</td>
             <td>{{name.ln}}</td>
-            <td><button id="editIcon" type="button" class="btn" (click)="editName(addNewEditNameModal,name.id)"><i class="fa fa-pencil-square-o"></i></button></td>
+            <td style="text-align:center"><button id="editIcon" type="button" class="btn" (click)="editName(addNewEditNameModal,name.id)"><i class="fa fa-pencil-square-o"></i></button>
+            <button id="editIcon" type="button" class="btn" (click)="deleteName(name.id)"><i class="fa fa-trash"></i></button></td>
           </tr>
         </tbody>
       </table>

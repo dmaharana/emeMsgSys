@@ -60,6 +60,11 @@ export class DemoComponent implements OnInit {
     }
   }
 
+  deleteName(id): void {
+    const entryIdx = this.findNameById(id);
+    this.names.splice(entryIdx, 1);
+  }
+
   private findNameById(id): number {
     // console.log(`edit name with id=${id}`);
     // console.log('inside findNameById');
