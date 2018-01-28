@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { IMultiSelectOption } from 'angular-2-dropdown-multiselect';
 
 @Component({
   selector: 'app-sample-page',
@@ -9,6 +10,8 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 })
 export class SamplePageComponent implements OnInit {
   closeResult: string;
+  optionsModel: number[];
+  myOptions: IMultiSelectOption[];
 
   constructor(private modalService: NgbModal) { }
 
@@ -26,6 +29,14 @@ export class SamplePageComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.myOptions = [
+      { id: 1, name: 'Option 1' },
+      { id: 2, name: 'Option 2' },
+    ];
+  }
+
+  onChange() {
+    console.log(this.optionsModel);
   }
 
 }

@@ -42,6 +42,7 @@
       <ngb-tab title="Tomatoes">
         <ng-template ngbTabContent>
           <p>Content for tab 3</p>
+          <ss-multiselect-dropdown [options]="myOptions" [(ngModel)]="optionsModel" (ngModelChange)="onChange($event)"></ss-multiselect-dropdown>
         </ng-template>
       </ngb-tab>
       <ngb-tab title="Corrots">
