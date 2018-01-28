@@ -44,5 +44,27 @@
           <p>Content for tab 3</p>
         </ng-template>
       </ngb-tab>
+      <ngb-tab title="Corrots">
+        <ng-template ngbTabContent>
+          <p>Content for tab 4</p>
+          <button class="btn btn-primary" (click)="open(content)">Click</button>
+        </ng-template>
+      </ngb-tab>
     </ngb-tabset>
 </div>
+
+<!-- Modal tab 4 -->
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">A Question to ponder&hellip;</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Is carrot a vegetable or fruit?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-light" (click)="c('Close click')">Close</button>
+  </div>
+</ng-template>
