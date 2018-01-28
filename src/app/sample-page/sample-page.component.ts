@@ -16,6 +16,15 @@ export class SamplePageComponent implements OnInit {
     this.modalService.open(content, { windowClass: 'dark-modal' });
   }
 
+  setResponse(resp): void {
+    this.closeResult = '';
+    if (resp === 0) {
+      this.closeResult = 'Fruit';
+    } else if (resp === 1) {
+      this.closeResult = 'Vegetable';
+    }
+  }
+
   ngOnInit() {
   }
 

@@ -47,6 +47,7 @@
       <ngb-tab title="Corrots">
         <ng-template ngbTabContent>
           <p>Content for tab 4</p>
+          <p *ngIf="closeResult">You said: <code>{{closeResult}}</code></p>
           <button class="btn btn-primary" (click)="open(content)">Click</button>
         </ng-template>
       </ngb-tab>
@@ -65,6 +66,7 @@
     <p>Is carrot a vegetable or fruit?</p>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-light" (click)="c('Close click')">Close</button>
+    <button type="button" class="btn btn-outline-success" (click)="setResponse(0);c('Close click')">Fruit</button>
+    <button type="button" class="btn btn-outline-warning" (click)="setResponse(1);c('Close click')">Vegetable</button>
   </div>
 </ng-template>
