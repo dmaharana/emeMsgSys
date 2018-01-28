@@ -5,17 +5,13 @@ import { FormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
-import { ModalDemoComponent } from './modal-demo/modal-demo.component';
 import { DemoComponent } from './demo/demo.component';
-import { DemoModalComponent } from './demo-modal/demo-modal.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ModalDemoComponent,
-    DemoComponent,
-    DemoModalComponent
+    DemoComponent
   ],
   imports: [
     BrowserModule,
